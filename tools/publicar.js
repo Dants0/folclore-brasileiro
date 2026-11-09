@@ -10,7 +10,7 @@
 'use strict';
 const fs = require('fs'), path = require('path'), os = require('os');
 
-const MODRINTH_PROJETO = process.env.MODRINTH_PROJETO || '';
+const MODRINTH_PROJETO = process.env.MODRINTH_PROJETO || 'o9qYlBCN';
 const CURSEFORGE_PROJETO = process.env.CURSEFORGE_PROJETO || '';
 const MC = '26.3';
 // CurseForge game version ids (minecraft.curseforge.com/api/game/versions).
