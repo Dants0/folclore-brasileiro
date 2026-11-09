@@ -1,12 +1,63 @@
 [
-  {"arquivo": "mapinguari.png", "titulo": "Mapinguari", "descricao": "The one-eyed giant of the Amazon, with a mouth in its belly. / O gigante de um olho só, com boca na barriga.", "destaque": true},
-  {"arquivo": "boitata.png", "titulo": "Boitata", "descricao": "The serpent of fire that puts out every blaze. / A cobra de fogo que protege os campos."},
-  {"arquivo": "mula_sem_cabeca.png", "titulo": "Headless Mule / Mula sem Cabeca", "descricao": "Pull off her iron bridle to break the curse. / Arranque o freio para quebrar o encanto."},
-  {"arquivo": "iara.png", "titulo": "Iara", "descricao": "She sings in the rivers. Don't look at her. / Nao olhe para ela."},
-  {"arquivo": "boto.png", "titulo": "Boto", "descricao": "The pink river dolphin that saves drowning swimmers. / O boto cor-de-rosa."},
-  {"arquivo": "boto_homem.png", "titulo": "The young man in the white hat", "descricao": "At night the Boto walks out of the river. / A noite, o moco de chapeu branco."},
-  {"arquivo": "cuca.png", "titulo": "Cuca", "descricao": "She comes for whoever doesn't sleep. / Dorme, nene, que a Cuca vem pegar."},
-  {"arquivo": "lobisomem.png", "titulo": "Lobisomem", "descricao": "On full-moon nights. / Nas noites de lua cheia."},
-  {"arquivo": "cuca_noite.png", "titulo": "Cuca at night", "descricao": "Her eyes glow in the dark. / Os olhos brilham no escuro."},
-  {"arquivo": "boitata_noite.png", "titulo": "Boitata at night", "descricao": "A light of fire across the fields. / Uma luz de fogo no campo."}
+  {
+    "arquivo": "mapinguari.png",
+    "titulo": "Mapinguari",
+    "descricao": "The one-eyed giant of the Amazon, with a mouth in its belly. / O gigante de um olho só, com boca na barriga.",
+    "destaque": true
+  },
+  {
+    "arquivo": "saci.png",
+    "titulo": "Saci",
+    "descricao": "He steals from your inventory and can only be caught with a sieve. / Rouba seus itens e so a peneira pega."
+  },
+  {
+    "arquivo": "curupira.png",
+    "titulo": "Curupira",
+    "descricao": "Guardian of the forest, with flaming hair and backward feet. / Guardiao da mata, de pes virados."
+  },
+  {
+    "arquivo": "boitata.png",
+    "titulo": "Boitata",
+    "descricao": "The serpent of fire that puts out every blaze. / A cobra de fogo que protege os campos."
+  },
+  {
+    "arquivo": "mula_sem_cabeca.png",
+    "titulo": "Headless Mule / Mula sem Cabeca",
+    "descricao": "Pull off her iron bridle to break the curse. / Arranque o freio para quebrar o encanto."
+  },
+  {
+    "arquivo": "iara.png",
+    "titulo": "Iara",
+    "descricao": "She sings in the rivers. Don't look at her. / Nao olhe para ela."
+  },
+  {
+    "arquivo": "boto.png",
+    "titulo": "Boto",
+    "descricao": "The pink river dolphin that saves drowning swimmers. / O boto cor-de-rosa."
+  },
+  {
+    "arquivo": "boto_homem.png",
+    "titulo": "The young man in the white hat",
+    "descricao": "At night the Boto walks out of the river. / A noite, o moco de chapeu branco."
+  },
+  {
+    "arquivo": "cuca.png",
+    "titulo": "Cuca",
+    "descricao": "She comes for whoever doesn't sleep. / Dorme, nene, que a Cuca vem pegar."
+  },
+  {
+    "arquivo": "lobisomem.png",
+    "titulo": "Lobisomem",
+    "descricao": "On full-moon nights. / Nas noites de lua cheia."
+  },
+  {
+    "arquivo": "cuca_noite.png",
+    "titulo": "Cuca at night",
+    "descricao": "Her eyes glow in the dark. / Os olhos brilham no escuro."
+  },
+  {
+    "arquivo": "boitata_noite.png",
+    "titulo": "Boitata at night",
+    "descricao": "A light of fire across the fields. / Uma luz de fogo no campo."
+  }
 ]

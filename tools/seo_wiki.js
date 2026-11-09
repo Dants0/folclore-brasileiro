@@ -95,6 +95,9 @@ html = html.replace(/<head>[\s\S]*?<style>/, head);
 
 // ---------------------------------------------------------------- images: alt text, size, lazy
 const ALT = {
+  'saci.jpg': 'Saci no Minecraft: menino de uma perna só, gorro vermelho e cachimbo, com um diamante roubado na mão',
+  'curupira.jpg': 'Curupira no Minecraft: guardião da mata com cabelo de fogo e pés virados para trás',
+  'curupira_noite.jpg': 'Curupira com o cabelo de fogo brilhando à noite no Minecraft',
   'mapinguari.jpg': 'Mapinguari no Minecraft: gigante de pelo vermelho, um olho só e boca na barriga',
   'boitata.jpg': 'Boitatá, a cobra de fogo, voando sobre o campo no Minecraft',
   'boitata_noite.jpg': 'Boitatá brilhando no escuro à noite no Minecraft',

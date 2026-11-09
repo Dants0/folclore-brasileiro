@@ -302,9 +302,13 @@ public final class Roteiro {
 
 	/** Portraits of the other legends, by day and by night, with no smoke or dropped items in the way. */
 	private static void retratos() {
+		// No crosshair, hotbar or hand in the gallery shots (like pressing F1).
+		passo(1, () -> { if (!mc().gui.hud.isHidden()) mc().gui.hud.toggle(); });
 		// A flat stage in front of the camera, so nobody is buried in a slope.
 		passo(5, () -> cmd("tp @s ~ ~ ~ 0 10", "fill ~-7 ~ ~-2 ~7 ~8 ~12 air", "fill ~-7 ~-1 ~-2 ~7 ~-1 ~12 grass_block", "fill ~-7 ~-2 ~-2 ~7 ~-2 ~12 dirt"));
 		String[][] retratos = {
+				{"saci", "~ ~ ~2.5", "{NoAI:1b,Rotation:[180f,0f],equipment:{mainhand:{id:\"minecraft:diamond\",count:3}}}"},
+				{"curupira", "~ ~ ~3", "{NoAI:1b,Rotation:[150f,0f]}"},
 				{"boitata", "~ ~1.5 ~4", "{NoAI:1b,Rotation:[150f,0f]}"},
 				{"mula_sem_cabeca", "~ ~ ~4", "{NoAI:1b,Rotation:[150f,0f]}"},
 				{"iara", "~ ~ ~3", "{NoAI:1b,Rotation:[180f,0f]}"},
@@ -323,6 +327,7 @@ public final class Roteiro {
 				passo(30, () -> foto(nome));
 			}
 		}
+		passo(1, () -> { if (mc().gui.hud.isHidden()) mc().gui.hud.toggle(); });
 		passo(5, () -> cmd("kill @e[type=!minecraft:player]", "time set 6000"));
 
 	}

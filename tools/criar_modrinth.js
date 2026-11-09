@@ -2,7 +2,7 @@
 // uploads the gallery. Prints the project id (put it in tools/publicar.js).
 //
 // Usage: node tools/criar_modrinth.js [--teste]            create the draft project
-//        node tools/criar_modrinth.js galeria <project id>  upload docs/imagens/galeria.json
+//        node tools/criar_modrinth.js galeria <project id> [files...]  upload docs/imagens/galeria.json (or only those files)
 //        node tools/criar_modrinth.js enviar <project id>   submit for review (after a version exists)
 'use strict';
 const fs = require('fs'), path = require('path'), os = require('os');
@@ -11,7 +11,7 @@ const raiz = path.join(__dirname, '..');
 const AGENTE = 'Dants0/folclore-brasileiro-publicacao';
 const API = 'https://api.modrinth.com/v2';
 const token = () => fs.readFileSync(path.join(os.homedir(), '.modrinth_token.txt'), 'utf8').replace(/^﻿/, '').trim();
-const [, , acao, id] = process.argv;
+const [, , acao, id, ...so] = process.argv;
 
 async function criar(teste) {
   const data = {
@@ -44,7 +44,7 @@ async function criar(teste) {
 
 async function galeria() {
   const lista = JSON.parse(fs.readFileSync(path.join(raiz, 'docs', 'imagens', 'galeria.json'), 'utf8'));
-  for (const g of lista) {
+  for (const g of lista.filter(g => !so.length || so.includes(g.arquivo))) {
     const q = new URLSearchParams({ ext: 'png', featured: String(!!g.destaque), title: g.titulo, description: g.descricao });
     const r = await fetch(`${API}/project/${id}/gallery?${q}`, {
       method: 'POST', headers: { Authorization: token(), 'User-Agent': AGENTE, 'Content-Type': 'image/png' },
