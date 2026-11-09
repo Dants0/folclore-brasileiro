@@ -11,7 +11,7 @@
 const fs = require('fs'), path = require('path'), os = require('os');
 
 const MODRINTH_PROJETO = process.env.MODRINTH_PROJETO || 'o9qYlBCN';
-const CURSEFORGE_PROJETO = process.env.CURSEFORGE_PROJETO || '';
+const CURSEFORGE_PROJETO = process.env.CURSEFORGE_PROJETO || '1794254';
 const MC = '26.3';
 // CurseForge game version ids (minecraft.curseforge.com/api/game/versions).
 const CF_VERSOES = { minecraft: 17045, fabric: 7499, java25: 14454, client: 9638, server: 9639 };

@@ -4,7 +4,7 @@
 | Campo | Valor |
 |---|---|
 | Nome | Folclore Brasileiro |
-| IDs | Modrinth `o9qYlBCN` · CurseForge (a criar) |
+| IDs | Modrinth `o9qYlBCN` · CurseForge `1794254` |
 | Slug / URL | `folclore-brasileiro` |
 | Resumo (até 256 caracteres) | Nine creatures from Brazilian folklore, each with the rules of its legend: the Saci steals your things, the Curupira guards the forest, the Iara sings in the rivers... / Criaturas do folclore brasileiro no Minecraft. |
 | Loader | Fabric |
