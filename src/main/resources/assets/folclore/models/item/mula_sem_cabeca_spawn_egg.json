@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "folclore:item/mula_sem_cabeca_spawn_egg"
+	}
+}

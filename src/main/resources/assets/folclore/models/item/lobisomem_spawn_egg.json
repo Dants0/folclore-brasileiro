@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "folclore:item/lobisomem_spawn_egg"
+	}
+}

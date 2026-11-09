@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "folclore",
+	"version": "${version}",
+	"name": "Folclore Brasileiro",
+	"description": "Creatures from Brazilian folklore come to Minecraft: the Saci, the Curupira, the Boitatá, the Headless Mule, the Iara, the Boto, the Cuca, the Lobisomem and the Mapinguari, each with the rules of its legend. / Criaturas do folclore brasileiro no Minecraft, cada uma com as regras da sua lenda.",
+	"authors": [
+		"Guilherme Goes"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/folclore-brasileiro",
+		"sources": "https://github.com/Dants0/folclore-brasileiro",
+		"issues": "https://github.com/Dants0/folclore-brasileiro/issues"
+	},
+	"license": "LicenseRef-Folclore",
+	"icon": "assets/folclore/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.guilhermegoes.folclore.Folclore"
+		],
+		"client": [
+			"com.guilhermegoes.folclore.client.FolcloreClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
