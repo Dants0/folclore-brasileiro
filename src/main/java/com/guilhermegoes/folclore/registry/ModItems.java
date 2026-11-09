@@ -5,6 +5,8 @@ import com.guilhermegoes.folclore.saci.PeneiraItem;
 import com.guilhermegoes.folclore.saci.SaciGarrafaItem;
 import com.guilhermegoes.folclore.criatura.FreioMulaItem;
 import java.util.List;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.minecraft.world.item.CreativeModeTabs;
 import java.util.function.Function;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -134,6 +136,13 @@ public final class ModItems {
 	}
 
 	public static void init() {
+		// The eggs also go in the vanilla Spawn Eggs tab, where everyone looks for them first.
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(saida -> {
+			for (Item ovo : new Item[] {SACI_SPAWN_EGG, CURUPIRA_SPAWN_EGG, BOITATA_SPAWN_EGG, MULA_SPAWN_EGG, IARA_SPAWN_EGG,
+					BOTO_SPAWN_EGG, CUCA_SPAWN_EGG, LOBISOMEM_SPAWN_EGG, MAPINGUARI_SPAWN_EGG}) {
+				saida.accept(new ItemStack(ovo), CreativeModeTab.TabVisibility.PARENT_TAB_ONLY);
+			}
+		});
 	}
 
 	private ModItems() {

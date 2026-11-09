@@ -144,6 +144,11 @@ public final class Roteiro {
 			passo(10, () -> mc().stop());
 			return;
 		}
+		if ("ovos".equals(System.getenv("FOLCLORE_ROTEIRO_SO"))) {
+			passo(20, Roteiro::ovos);
+			passo(10, () -> mc().stop());
+			return;
+		}
 		boolean so = "retratos".equals(System.getenv("FOLCLORE_ROTEIRO_SO"));
 		if (so) {
 			retratos();
@@ -349,6 +354,26 @@ public final class Roteiro {
 		}));
 		passo(5, () -> cmd("tp @s ~ ~ ~ ~ 50"));
 		passo(10, () -> foto("11_pegadas"));
+	}
+
+	/** Checks that every folklore spawn egg is in the vanilla Spawn Eggs creative tab and in ours. */
+	private static void ovos() {
+		var mc = mc();
+		net.minecraft.world.item.CreativeModeTabs.tryRebuildTabContents(mc.level.enabledFeatures(), true, mc.level.registryAccess());
+		var ovos = net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB.getValueOrThrow(net.minecraft.world.item.CreativeModeTabs.SPAWN_EGGS);
+		var nossa = net.minecraft.core.registries.BuiltInRegistries.CREATIVE_MODE_TAB.getValue(com.guilhermegoes.folclore.Folclore.id("folclore"));
+		int naAbaOvos = 0, naNossa = 0;
+		for (var item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
+			var id = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
+			if (id.getNamespace().equals("folclore") && id.getPath().endsWith("_spawn_egg")) {
+				var pilha = new net.minecraft.world.item.ItemStack(item);
+				boolean a = ovos.getDisplayItems().stream().anyMatch(x -> x.is(item)), b = nossa != null && nossa.getDisplayItems().stream().anyMatch(x -> x.is(item));
+				naAbaOvos += a ? 1 : 0;
+				naNossa += b ? 1 : 0;
+				log("ovo " + id + " abaOvos=" + a + " abaFolclore=" + b);
+			}
+		}
+		log("CHECK ovos: aba Ovos Geradores " + naAbaOvos + "/9, aba Folclore " + naNossa + "/9");
 	}
 
 	private Roteiro() {
