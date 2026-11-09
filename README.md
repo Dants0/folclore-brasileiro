@@ -4,6 +4,8 @@ Criaturas do folclore brasileiro no Minecraft (Fabric 26.3).
 
 *Creatures from Brazilian folklore come to Minecraft.*
 
+📖 **Wiki:** https://folclorebr.dantas-dev.com · [Modrinth](https://modrinth.com/mod/folclore-brasileiro) · [CurseForge](https://www.curseforge.com/projects/1794254)
+
 ## Saci
 Um redemoinho vem rodopiando na sua direção... é o Saci! Ele rouba um item do seu inventário e sai pulando numa perna só, rindo de você. Nenhuma arma acerta o Saci: só uma **peneira** jogada no redemoinho prende ele. Pegue o Saci e ele devolve o que levou e deixa o **gorro vermelho** para trás. Com o gorro você fica mais rápido, e nenhum Saci te rouba.
 

@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="pt-BR" data-lingua="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folclore Brasileiro: Wiki oficial</title>
+<meta name="description" content="Wiki oficial do mod Folclore Brasileiro para Minecraft (Fabric 26.3): Saci, Curupira, Boitatá, Mula sem Cabeça, Iara, Boto, Cuca, Lobisomem e Mapinguari. Official wiki of the Brazilian Folklore mod.">
+<meta property="og:title" content="Folclore Brasileiro: Wiki">
+<meta property="og:description" content="Nove criaturas do folclore brasileiro no Minecraft, cada uma com as regras da sua lenda.">
+<meta property="og:image" content="https://folclorebr.dantas-dev.com/img/mapinguari.jpg">
+<link rel="icon" href="img/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Pixelify+Sans:wght@500;700&display=swap">
+<style>
+:root {
+  --fundo: #10170f; --painel: #172215; --painel2: #1d2b1a; --borda: #2c4128;
+  --texto: #e8eadf; --suave: #a9b39d; --verde: #7cc35b; --fogo: #f4a23a; --vermelho: #e0503c;
+  --raio: 10px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 16px/1.6 Inter, system-ui, sans-serif; }
+a { color: var(--fogo); }
+img.pixel { image-rendering: pixelated; }
+[data-lingua="pt"] [lang="en"], [data-lingua="en"] [lang="pt"] { display: none !important; }
+
+header {
+  position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 12px;
+  padding: 10px 20px; background: rgba(16, 23, 15, .94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--borda);
+}
+header img { width: 40px; height: 40px; border-radius: 8px; }
+header .titulo { font: 700 22px 'Pixelify Sans', sans-serif; letter-spacing: .5px; }
+header .titulo small { display: block; font: 400 12px Inter, sans-serif; color: var(--suave); letter-spacing: 0; }
+header nav { margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.botao { display: inline-block; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--borda); background: var(--painel2);
+  color: var(--texto); text-decoration: none; font-size: 14px; font-weight: 600; cursor: pointer; }
+.botao:hover { border-color: var(--verde); }
+.botao.cheio { background: var(--verde); color: #10170f; border-color: var(--verde); }
+
+.layout { display: grid; grid-template-columns: 230px 1fr; max-width: 1200px; margin: 0 auto; gap: 28px; padding: 24px 20px 60px; }
+aside { position: sticky; top: 84px; align-self: start; max-height: calc(100vh - 100px); overflow: auto; }
+aside a { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: var(--suave); text-decoration: none; font-size: 15px; }
+aside a:hover, aside a.ativo { background: var(--painel2); color: var(--texto); }
+aside a img { width: 20px; height: 20px; }
+aside .grupo { margin: 16px 0 4px 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--verde); font-weight: 600; }
+
+main section { margin-bottom: 56px; }
+h1 { font: 700 44px/1.1 'Pixelify Sans', sans-serif; margin: 0 0 10px; }
+h2 { font: 700 30px 'Pixelify Sans', sans-serif; margin: 0 0 14px; display: flex; align-items: center; gap: 12px; }
+h2 img { width: 36px; height: 36px; }
+h3 { font-size: 18px; margin: 22px 0 8px; color: var(--fogo); }
+.destaque { color: var(--suave); font-size: 18px; max-width: 760px; }
+.aviso { border-left: 4px solid var(--fogo); background: var(--painel); padding: 10px 14px; border-radius: 0 var(--raio) var(--raio) 0; margin: 16px 0; }
+
+.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; margin-bottom: 56px; }
+.hero img { width: 100%; border-radius: var(--raio); border: 1px solid var(--borda); }
+.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.mini { display: block; text-decoration: none; color: var(--texto); background: var(--painel); border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; }
+.mini:hover { border-color: var(--verde); }
+.mini img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.mini span { display: block; padding: 8px 10px; font-weight: 600; font-size: 14px; }
+
+.ficha { display: grid; grid-template-columns: 1fr 300px; gap: 22px; background: var(--painel); border: 1px solid var(--borda); border-radius: var(--raio); padding: 20px; }
+.ficha .foto { width: 100%; border-radius: 8px; border: 1px solid var(--borda); margin-bottom: 10px; }
+.dados { width: 100%; border-collapse: collapse; font-size: 14px; }
+.dados td { padding: 6px 8px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+.dados td:first-child { color: var(--suave); white-space: nowrap; }
+.etiqueta { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; font-weight: 600; background: #2a1f12; color: var(--fogo); border: 1px solid #5a3d1a; margin: 0 4px 4px 0; }
+.etiqueta.verde { background: #18281a; color: var(--verde); border-color: #2f5a2a; }
+ul.dicas { padding-left: 20px; }
+ul.dicas li { margin: 4px 0; }
+
+.itens { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.item { display: flex; gap: 12px; background: var(--painel); border: 1px solid var(--borda); border-radius: var(--raio); padding: 12px; }
+.item img { width: 48px; height: 48px; flex: none; background: var(--painel2); border-radius: 6px; padding: 4px; }
+.item b { display: block; }
+.item p { margin: 2px 0 0; font-size: 14px; color: var(--suave); }
+
+.receita { display: inline-grid; grid-template-columns: repeat(3, 56px); gap: 4px; background: #2b2b2b; padding: 8px; border-radius: 6px; vertical-align: middle; }
+.receita div { width: 56px; height: 56px; background: #8b8b8b; border: 2px solid; border-color: #373737 #fff #fff #373737; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #1b1b1b; font-weight: 700; text-align: center; line-height: 1.1; }
+.seta { font-size: 34px; margin: 0 14px; vertical-align: middle; }
+
+table.tabela { width: 100%; border-collapse: collapse; background: var(--painel); border-radius: var(--raio); overflow: hidden; font-size: 15px; }
+table.tabela th, table.tabela td { padding: 9px 12px; border-bottom: 1px solid var(--borda); text-align: left; }
+table.tabela th { background: var(--painel2); color: var(--verde); font-weight: 600; }
+code { background: #0b100a; border: 1px solid var(--borda); padding: 1px 6px; border-radius: 5px; font-size: 14px; }
+pre { background: #0b100a; border: 1px solid var(--borda); padding: 14px; border-radius: var(--raio); overflow: auto; font-size: 14px; }
+footer { border-top: 1px solid var(--borda); padding: 24px 20px; text-align: center; color: var(--suave); font-size: 14px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { display: none; }
+  .hero, .ficha { grid-template-columns: 1fr; }
+  h1 { font-size: 34px; }
+  header nav .botao:not(.lingua) { display: none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <img src="img/icone.png" alt="" class="pixel">
+  <div class="titulo">Folclore Brasileiro <small><span lang="pt">Wiki oficial</span><span lang="en">Official wiki</span> · Minecraft 26.3 · Fabric</small></div>
+  <nav>
+    <a class="botao" href="https://modrinth.com/mod/folclore-brasileiro">Modrinth</a>
+    <a class="botao" href="https://www.curseforge.com/projects/1794254">CurseForge</a>
+    <a class="botao" href="https://github.com/Dants0/folclore-brasileiro">GitHub</a>
+    <button class="botao cheio lingua" id="lingua" type="button">English</button>
+  </nav>
+</header>
+
+<div class="layout">
+<aside>
+  <a href="#inicio"><span lang="pt">Início</span><span lang="en">Home</span></a>
+  <a href="#instalar"><span lang="pt">Instalação</span><span lang="en">Installation</span></a>
+  <div class="grupo"><span lang="pt">Criaturas</span><span lang="en">Creatures</span></div>
+  <a href="#saci"><img class="pixel" src="img/itens/saci_spawn_egg.png" alt="">Saci</a>
+  <a href="#curupira"><img class="pixel" src="img/itens/curupira_spawn_egg.png" alt="">Curupira</a>
+  <a href="#boitata"><img class="pixel" src="img/itens/boitata_spawn_egg.png" alt="">Boitatá</a>
+  <a href="#mula"><img class="pixel" src="img/itens/mula_sem_cabeca_spawn_egg.png" alt=""><span lang="pt">Mula sem Cabeça</span><span lang="en">Headless Mule</span></a>
+  <a href="#iara"><img class="pixel" src="img/itens/iara_spawn_egg.png" alt="">Iara</a>
+  <a href="#boto"><img class="pixel" src="img/itens/boto_spawn_egg.png" alt="">Boto</a>
+  <a href="#cuca"><img class="pixel" src="img/itens/cuca_spawn_egg.png" alt="">Cuca</a>
+  <a href="#lobisomem"><img class="pixel" src="img/itens/lobisomem_spawn_egg.png" alt="">Lobisomem</a>
+  <a href="#mapinguari"><img class="pixel" src="img/itens/mapinguari_spawn_egg.png" alt="">Mapinguari</a>
+  <div class="grupo"><span lang="pt">Referência</span><span lang="en">Reference</span></div>
+  <a href="#itens"><span lang="pt">Itens</span><span lang="en">Items</span></a>
+  <a href="#aparicoes"><span lang="pt">Quando aparecem</span><span lang="en">When they appear</span></a>
+  <a href="#comandos"><span lang="pt">Comandos</span><span lang="en">Commands</span></a>
+  <a href="#config"><span lang="pt">Configuração</span><span lang="en">Configuration</span></a>
+  <a href="#faq">FAQ</a>
+</aside>
+
+<main>
+<section id="inicio">
+  <div class="hero">
+    <div>
+      <h1>Folclore Brasileiro</h1>
+      <p class="destaque" lang="pt">Nove criaturas do folclore brasileiro no Minecraft, e cada uma segue <b>as regras da sua lenda</b>. Espada não mata o Saci. O Curupira castiga quem destrói a mata. E quem olha para a Iara acaba dentro do rio.</p>
+      <p class="destaque" lang="en">Nine creatures from Brazilian folklore come to Minecraft, and each one plays by <b>the rules of its legend</b>. You can't kill the Saci with a sword, the Curupira punishes whoever destroys the forest, and if you stare at the Iara she pulls you into the river.</p>
+      <div class="aviso" lang="pt">⚠️ <b>Beta.</b> O mod é novo: faça backup dos seus mundos e relate bugs no <a href="https://github.com/Dants0/folclore-brasileiro/issues">GitHub</a>.</div>
+      <div class="aviso" lang="en">⚠️ <b>Beta.</b> The mod is new: back up your worlds and report bugs on <a href="https://github.com/Dants0/folclore-brasileiro/issues">GitHub</a>.</div>
+    </div>
+    <img src="img/mapinguari.jpg" alt="Mapinguari">
+  </div>
+  <div class="grade">
+    <a class="mini" href="#saci"><img class="pixel" src="img/icone.png" alt="" style="object-fit:contain;background:#2e5e2a"><span>Saci</span></a>
+    <a class="mini" href="#curupira"><img class="pixel" src="img/itens/curupira_spawn_egg.png" alt="" style="object-fit:contain;background:#1d2b1a;padding:18px"><span>Curupira</span></a>
+    <a class="mini" href="#boitata"><img src="img/boitata.jpg" alt=""><span>Boitatá</span></a>
+    <a class="mini" href="#mula"><img src="img/mula_sem_cabeca.jpg" alt=""><span lang="pt">Mula sem Cabeça</span><span lang="en">Headless Mule</span></a>
+    <a class="mini" href="#iara"><img src="img/iara.jpg" alt=""><span>Iara</span></a>
+    <a class="mini" href="#boto"><img src="img/boto_homem.jpg" alt=""><span>Boto</span></a>
+    <a class="mini" href="#cuca"><img src="img/cuca.jpg" alt=""><span>Cuca</span></a>
+    <a class="mini" href="#lobisomem"><img src="img/lobisomem.jpg" alt=""><span>Lobisomem</span></a>
+    <a class="mini" href="#mapinguari"><img src="img/mapinguari.jpg" alt=""><span>Mapinguari</span></a>
+  </div>
+</section>
+
+<section id="instalar">
+  <h2><span lang="pt">Instalação</span><span lang="en">Installation</span></h2>
+  <ol lang="pt">
+    <li>Instale o <a href="https://fabricmc.net/use/">Fabric Loader</a> para o Minecraft <b>26.3</b>.</li>
+    <li>Coloque o <b>Fabric API</b> e o <b>Folclore Brasileiro</b> na pasta <code>mods</code>.</li>
+    <li>O mod precisa estar no <b>cliente e no servidor</b>. Ele funciona em mundos já existentes.</li>
+  </ol>
+  <ol lang="en">
+    <li>Install the <a href="https://fabricmc.net/use/">Fabric Loader</a> for Minecraft <b>26.3</b>.</li>
+    <li>Put <b>Fabric API</b> and <b>Folclore Brasileiro</b> in your <code>mods</code> folder.</li>
+    <li>Required on <b>both client and server</b>. Works in existing worlds.</li>
+  </ol>
+</section>
+
+<!-- ============================================================ SACI -->
+<section id="saci">
+  <h2><img class="pixel" src="img/itens/gorro_saci.png" alt="">Saci</h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt">Um menino de uma perna só, de gorro vermelho e cachimbo, que anda dentro dos redemoinhos. Ele chega de mansinho, <b>rouba um item do seu inventário</b> e sai pulando e rindo com o item erguido na mão. De vez em quando para para gargalhar: <b>é a sua chance</b>.</p>
+      <p lang="en">A one-legged boy in a red cap with a clay pipe who travels inside whirlwinds. He sneaks up, <b>steals an item from your inventory</b> and hops away laughing, holding it up high. Now and then he stops to laugh at you: <b>that's your chance</b>.</p>
+      <h3><span lang="pt">Como vencer</span><span lang="en">How to beat him</span></h3>
+      <ul class="dicas" lang="pt">
+        <li><b>Nenhuma arma acerta o Saci</b>: todo golpe só faz ele sumir no redemoinho e reaparecer a 8–16 blocos.</li>
+        <li>Faça uma <b>Peneira</b>, mire nele (até 9 blocos) e clique com o botão direito. Ele devolve o que roubou e larga o <b>Gorro do Saci</b>.</li>
+        <li>Tenha uma <b>garrafa de vidro na mão secundária</b> na hora da captura e ele fica preso: você ganha a <b>Saci na Garrafa</b> no lugar do gorro.</li>
+        <li>Quem usa o Gorro do Saci nunca é roubado.</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li><b>No weapon can touch him</b>: every blow just makes him vanish into the whirlwind and reappear 8–16 blocks away.</li>
+        <li>Craft a <b>Sieve</b>, aim at him (up to 9 blocks) and right-click. He gives back what he stole and drops the <b>Saci's Cap</b>.</li>
+        <li>Hold a <b>glass bottle in your off hand</b> when you catch him and he gets corked: you get the <b>Saci in a Bottle</b> instead of the cap.</li>
+        <li>Whoever wears the Saci's Cap is never robbed.</li>
+      </ul>
+      <h3><span lang="pt">Pegadinhas</span><span lang="en">Pranks</span></h3>
+      <p lang="pt">Ele apaga tochas próximas com uma rajada de vento e "trança a crina" dos cavalos, que ficam lentos por um minuto.</p>
+      <p lang="en">He blows out nearby torches with a gust of wind and "braids the mane" of horses, slowing them for a minute.</p>
+    </div>
+    <div>
+      <img class="foto pixel" src="img/icone.png" alt="Saci" style="background:#2e5e2a">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>20 ❤ <span lang="pt">(imune a dano)</span><span lang="en">(can't be hurt)</span></td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">De dia até o anoitecer, a céu aberto</span><span lang="en">Day to dusk, under open sky</span></td></tr>
+        <tr><td><span lang="pt">Chance</span><span lang="en">Chance</span></td><td><span lang="pt">1 em 20 por minuto</span><span lang="en">1 in 20 per minute</span></td></tr>
+        <tr><td><span lang="pt">Deixa</span><span lang="en">Drops</span></td><td><span lang="pt">Gorro do Saci ou Saci na Garrafa</span><span lang="en">Saci's Cap or Saci in a Bottle</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CURUPIRA -->
+<section id="curupira">
+  <h2><img class="pixel" src="img/itens/pegada.png" alt="">Curupira</h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt">O guardião da mata, de <b>cabelo de fogo</b> e <b>pés virados para trás</b>. Ele não aparece por acaso: o mod conta o quanto cada jogador já tirou da floresta.</p>
+      <p lang="en">The guardian of the forest, with <b>flaming hair</b> and <b>feet turned backwards</b>. He doesn't show up by chance: the mod keeps count of how much each player has taken from the forest.</p>
+      <table class="tabela">
+        <tr><th><span lang="pt">Ação</span><span lang="en">Action</span></th><th><span lang="pt">Pontos de desmatamento</span><span lang="en">Forest debt</span></th></tr>
+        <tr><td><span lang="pt">Quebrar um tronco</span><span lang="en">Break a log</span></td><td>+1</td></tr>
+        <tr><td><span lang="pt">Matar um animal selvagem</span><span lang="en">Kill a wild animal</span></td><td>+2</td></tr>
+        <tr><td><span lang="pt">Plantar uma muda</span><span lang="en">Plant a sapling</span></td><td>−3</td></tr>
+        <tr><td><span lang="pt">A cada 20 segundos</span><span lang="en">Every 20 seconds</span></td><td>−1</td></tr>
+      </table>
+      <ul class="dicas" lang="pt">
+        <li><b>24 pontos:</b> você ouve um assobio na mata e acha <b>pegadas ao contrário</b> perto de você.</li>
+        <li><b>48 pontos:</b> o Curupira vem atrás de você. Ele assobia e dá náusea e escuridão (você "se perde"), e deixa pegadas viradas para o lado de onde veio.</li>
+        <li>Muito ferido, ele some na mata e volta curado, <b>duas vezes</b>. Se você matar o Curupira, fica com fraqueza, lentidão e azar: a mata não esquece.</li>
+        <li><b>Oferenda:</b> clique nele com uma <b>garrafa de mel</b>. Ele perdoa tudo, deixa 4 mudas e vai embora.</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li><b>24 points:</b> you hear a whistle in the woods and find <b>backward footprints</b> around you.</li>
+        <li><b>48 points:</b> the Curupira comes for you, whistling, making you dizzy and lost (nausea, darkness), leaving footprints that point the way he came.</li>
+        <li>Badly hurt, he melts into the forest and returns healed, <b>twice</b>. Kill him and you carry weakness, slowness and bad luck: the forest doesn't forget.</li>
+        <li><b>Offering:</b> use a <b>honey bottle</b> on him. He forgives everything, leaves 4 saplings and goes away.</li>
+      </ul>
+      <p lang="pt">Os pontos ficam salvos no jogador (inclusive depois de morrer). Use <code>/folclore desmatamento</code> para ver os seus.</p>
+      <p lang="en">The points are saved with the player (even through death). Use <code>/folclore desmatamento</code> to see yours.</p>
+    </div>
+    <div>
+      <img class="foto pixel" src="img/itens/curupira_spawn_egg.png" alt="Curupira" style="background:#1d2b1a;padding:40px">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>40 ❤</td></tr>
+        <tr><td><span lang="pt">Dano</span><span lang="en">Damage</span></td><td>5</td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">Com 48+ pontos de desmatamento</span><span lang="en">At 48+ forest debt</span></td></tr>
+        <tr><td><span lang="pt">Acalma com</span><span lang="en">Calmed by</span></td><td><span lang="pt">Garrafa de mel</span><span lang="en">Honey bottle</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BOITATÁ -->
+<section id="boitata">
+  <h2><img class="pixel" src="img/itens/olho_boitata.png" alt="">Boitatá</h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt">A grande <b>cobra de fogo</b> de olhos enormes que protege os campos. Ela desliza pelo ar à noite e <b>engole as chamas</b>: todo fogo num raio de 8 blocos se apaga quando ela passa.</p>
+      <p lang="en">The great <b>serpent of fire</b> with huge shining eyes that protects the fields. It glides through the night air and <b>eats the flames</b>: every fire within 8 blocks goes out as it passes.</p>
+      <ul class="dicas" lang="pt">
+        <li><b>Acender fogo perto da mata</b> (isqueiro ou carga de fogo a até 4 blocos de troncos ou folhas) chama o Boitatá, que persegue e incendeia quem pôs fogo.</li>
+        <li>É imune a fogo e voa. Sozinha, vai embora ao amanhecer.</li>
+        <li>Deixa o <b>Olho de Boitatá</b>.</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li><b>Lighting a fire near the forest</b> (flint and steel or fire charge within 4 blocks of logs or leaves) calls the Boitatá, which hunts down and sets ablaze the arsonist.</li>
+        <li>Fire-immune and flying. Leaves at sunrise when not hunting anyone.</li>
+        <li>Drops the <b>Boitatá Eye</b>.</li>
+      </ul>
+    </div>
+    <div>
+      <img class="foto" src="img/boitata_noite.jpg" alt="Boitatá">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>30 ❤</td></tr>
+        <tr><td><span lang="pt">Dano</span><span lang="en">Damage</span></td><td>4 + <span lang="pt">fogo 5 s</span><span lang="en">fire 5 s</span></td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">À noite; ou quando alguém põe fogo na mata</span><span lang="en">At night; or when someone sets the forest on fire</span></td></tr>
+        <tr><td><span lang="pt">Deixa</span><span lang="en">Drops</span></td><td><span lang="pt">Olho de Boitatá</span><span lang="en">Boitatá Eye</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MULA -->
+<section id="mula">
+  <h2><img class="pixel" src="img/itens/freio_mula.png" alt=""><span lang="pt">Mula sem Cabeça</span><span lang="en">Headless Mule</span></h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt">Uma mula sem cabeça, com <b>fogo saindo do pescoço</b> e ferraduras de ferro, que galopa pela noite relinchando e atropelando quem cruza o caminho. Aparece com o <b>dobro de chance na noite de quinta para sexta</b>.</p>
+      <p lang="en">A headless mule with <b>fire pouring out of her neck</b> and iron shoes, galloping through the night, screaming and trampling whoever crosses her path. <b>Twice as likely on Thursday-to-Friday nights</b>.</p>
+      <ul class="dicas" lang="pt">
+        <li>Com menos da metade da vida, ela fica <b>cansada</b> (o fogo diminui e ela para de atacar).</li>
+        <li>Cansada, clique nela com a <b>mão vazia</b> para <b>arrancar o freio de ferro</b>: o encanto se quebra e ela some.</li>
+        <li>Se você demorar, ela recupera o fôlego e volta a atacar.</li>
+        <li>O <b>Freio da Mula</b> deixa um cavalo, burro ou mula domado <b>30% mais rápido</b> para sempre.</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li>Below half health she gets <b>worn out</b> (the fire dies down and she stops attacking).</li>
+        <li>While she's worn out, use an <b>empty hand</b> on her to <b>pull off the iron bridle</b>: the curse breaks and she vanishes.</li>
+        <li>Wait too long and she catches her breath and charges again.</li>
+        <li>The <b>Mule's Iron Bridle</b> makes a tamed horse, donkey or mule <b>30% faster</b>, permanently.</li>
+      </ul>
+    </div>
+    <div>
+      <img class="foto" src="img/mula_sem_cabeca.jpg" alt="Mula sem Cabeça">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>40 ❤</td></tr>
+        <tr><td><span lang="pt">Dano</span><span lang="en">Damage</span></td><td>6 + <span lang="pt">fogo 3 s</span><span lang="en">fire 3 s</span></td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">À noite, a céu aberto</span><span lang="en">At night, open sky</span></td></tr>
+        <tr><td><span lang="pt">Deixa</span><span lang="en">Drops</span></td><td><span lang="pt">Freio da Mula</span><span lang="en">Mule's Iron Bridle</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ IARA -->
+<section id="iara">
+  <h2><img class="pixel" src="img/itens/escama_iara.png" alt="">Iara</h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt">A mãe-d'água canta nos rios do anoitecer até o amanhecer. <b>Quem olha para ela enquanto ela canta é puxado para a água</b>, passo a passo, tonto com o encanto. E quem chega até ela dentro d'água é levado para o fundo.</p>
+      <p lang="en">The mother of the waters sings in the rivers from dusk to dawn. <b>Whoever looks at her while she sings is drawn into the water</b>, step by step, dizzy with the spell. Whoever reaches her in the water is pulled to the bottom.</p>
+      <ul class="dicas" lang="pt">
+        <li><b>Desvie o olhar</b> para quebrar o encanto. Ele só funciona enquanto você olha direto para ela.</li>
+        <li>Ferida, ela mergulha e reaparece em outro ponto do rio.</li>
+        <li>Deixa 1 ou 2 <b>Escamas da Iara</b>.</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li><b>Look away</b> to break the spell: it only works while you look right at her.</li>
+        <li>When hurt, she dives and resurfaces elsewhere in the river.</li>
+        <li>Drops 1–2 <b>Iara Scales</b>.</li>
+      </ul>
+    </div>
+    <div>
+      <img class="foto" src="img/iara.jpg" alt="Iara">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>30 ❤ · <span lang="pt">armadura</span><span lang="en">armor</span> 4</td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">À noite, na água perto de você</span><span lang="en">At night, in water near you</span></td></tr>
+        <tr><td><span lang="pt">Deixa</span><span lang="en">Drops</span></td><td><span lang="pt">Escama da Iara</span><span lang="en">Iara Scale</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BOTO -->
+<section id="boto">
+  <h2><img class="pixel" src="img/itens/chapeu_boto.png" alt="">Boto</h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt">De dia, um <b>boto cor-de-rosa</b> que brinca no rio e <b>salva quem está se afogando</b>: ele nada até você, te empurra para a superfície e te dá respiração aquática por 30 segundos.</p>
+      <p lang="en">By day, a <b>pink river dolphin</b> that plays in the river and <b>saves drowning swimmers</b>: it swims to you, pushes you up and gives you 30 seconds of water breathing.</p>
+      <p lang="pt">À noite, ele sai do rio como <b>o moço de terno e chapéu branco</b>, que dança na margem e nunca tira o chapéu.</p>
+      <p lang="en">At night he walks out of the river as <b>the young man in a white suit and white hat</b>, dancing by the shore. He never takes off his hat.</p>
+      <ul class="dicas" lang="pt">
+        <li>Dê um <b>peixe</b> para o moço e ele te dá um presente (de esmeralda e flores até, com sorte, um Coração do Mar).</li>
+        <li><b>Bata nele</b> e o chapéu cai, revelando quem ele é: ele vira boto e volta para o rio. O <b>Chapéu do Boto</b> fica com você.</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li>Give the young man a <b>fish</b> and he gives you a present (from emeralds and flowers to, if you're lucky, a Heart of the Sea).</li>
+        <li><b>Hit him</b> and his hat falls off, revealing who he is: he turns back into a dolphin and dives away. You keep the <b>Boto's Hat</b>.</li>
+      </ul>
+    </div>
+    <div>
+      <img class="foto" src="img/boto_homem.jpg" alt="Boto">
+      <img class="foto" src="img/boto.jpg" alt="Boto cor-de-rosa">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>24 ❤</td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">Na água perto de você, dia ou noite</span><span lang="en">In water near you, day or night</span></td></tr>
+        <tr><td><span lang="pt">Deixa</span><span lang="en">Drops</span></td><td><span lang="pt">Chapéu do Boto; presentes</span><span lang="en">Boto's Hat; presents</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CUCA -->
+<section id="cuca">
+  <h2><img class="pixel" src="img/itens/cuca_spawn_egg.png" alt="">Cuca</h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt"><i>"Dorme, nenê, que a Cuca vem pegar..."</i> A velha bruxa com cabeça de jacaré vem atrás de quem <b>passou três noites sem dormir</b>. Ela gargalha, joga poções (lentidão, fraqueza, veneno, dano) e lança um <b>sono pesado</b>: escuridão, lentidão e cansaço.</p>
+      <p lang="en"><i>"Sleep, little one, or the Cuca will come..."</i> The old alligator-headed witch comes for whoever <b>hasn't slept for three nights</b>. She cackles, throws potions (slowness, weakness, poison, harming) and casts a <b>heavy sleep</b>: darkness, slowness and fatigue.</p>
+      <ul class="dicas" lang="pt">
+        <li><b>Vá dormir</b>: assim que você descansa, ela desiste e vai embora resmungando.</li>
+        <li>Se for derrotada, deixa 2 poções boas (cura, regeneração, velocidade, visão noturna ou força).</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li><b>Go to bed</b>: as soon as you rest, she gives up and leaves, grumbling.</li>
+        <li>If defeated, she drops 2 good potions (healing, regeneration, swiftness, night vision or strength).</li>
+      </ul>
+    </div>
+    <div>
+      <img class="foto" src="img/cuca_noite.jpg" alt="Cuca">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>40 ❤ · <span lang="pt">armadura</span><span lang="en">armor</span> 4</td></tr>
+        <tr><td><span lang="pt">Ataque</span><span lang="en">Attack</span></td><td><span lang="pt">Poções arremessadas</span><span lang="en">Thrown potions</span></td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">À noite, para quem não dorme há 3 noites</span><span lang="en">At night, after 3 nights without sleep</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ LOBISOMEM -->
+<section id="lobisomem">
+  <h2><img class="pixel" src="img/itens/lobisomem_spawn_egg.png" alt="">Lobisomem</h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt">Nas <b>noites de lua cheia</b>, um homem vira lobo e ronda as encruzilhadas. Ele é rápido, salta sobre a presa e caça jogadores e animais. Dá para ouvir o uivo de longe.</p>
+      <p lang="en">On <b>full-moon nights</b>, a man turns into a wolf and roams the crossroads. He is fast, leaps at his prey and hunts players and animals alike. You can hear the howl from afar.</p>
+      <ul class="dicas" lang="pt">
+        <li>A cura antiga é ferir até sangrar: com <b>menos de 25% da vida</b>, o encanto se quebra.</li>
+        <li>No lugar dele aparece um <b>aldeão com nome</b> ("Seu Lobato", "Zé do Mato"...) que não lembra de nada.</li>
+        <li>Ao amanhecer, ele também volta a ser homem.</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li>The old cure is to wound him until he bleeds: below <b>25% health</b> the curse breaks.</li>
+        <li>In his place stands a <b>named villager</b> ("Seu Lobato", "Zé do Mato"...) who remembers nothing.</li>
+        <li>He also turns back into a man at sunrise.</li>
+      </ul>
+    </div>
+    <div>
+      <img class="foto" src="img/lobisomem.jpg" alt="Lobisomem">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>50 ❤ · <span lang="pt">armadura</span><span lang="en">armor</span> 6</td></tr>
+        <tr><td><span lang="pt">Dano</span><span lang="en">Damage</span></td><td>7</td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">Noites de lua cheia, a céu aberto</span><span lang="en">Full-moon nights, open sky</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MAPINGUARI -->
+<section id="mapinguari">
+  <h2><img class="pixel" src="img/itens/garra_mapinguari.png" alt="">Mapinguari</h2>
+  <div class="ficha">
+    <div>
+      <p lang="pt">O gigante da Amazônia: coberto de pelo avermelhado, com <b>um olho só</b> e uma <b>boca enorme no meio da barriga</b>. O fedor é tão forte que, perto dele, você fica enjoado e envenenado.</p>
+      <p lang="en">The giant of the Amazon: covered in reddish fur, with <b>a single eye</b> and a <b>huge mouth in the middle of its belly</b>. It smells so bad that standing near it makes you sick and poisoned.</p>
+      <ul class="dicas" lang="pt">
+        <li>O couro dele aguenta quase tudo: golpes pelas costas e pelos lados causam só <b>20% do dano</b>.</li>
+        <li>Ataque <b>de frente, na boca da barriga</b>: lá o dano é de <b>150%</b>.</li>
+        <li>Vive na selva e aparece de dia. Deixa a <b>Garra do Mapinguari</b>, couro e muita experiência.</li>
+      </ul>
+      <ul class="dicas" lang="en">
+        <li>Its hide shrugs off almost everything: hits from behind or the sides deal only <b>20% damage</b>.</li>
+        <li>Strike <b>from the front, right in the belly mouth</b>: <b>150% damage</b>.</li>
+        <li>Lives in jungles, by day. Drops the <b>Mapinguari Claw</b>, leather and lots of experience.</li>
+      </ul>
+    </div>
+    <div>
+      <img class="foto" src="img/mapinguari.jpg" alt="Mapinguari">
+      <table class="dados">
+        <tr><td><span lang="pt">Vida</span><span lang="en">Health</span></td><td>120 ❤</td></tr>
+        <tr><td><span lang="pt">Dano</span><span lang="en">Damage</span></td><td>10</td></tr>
+        <tr><td><span lang="pt">Aparece</span><span lang="en">Appears</span></td><td><span lang="pt">De dia, na selva</span><span lang="en">By day, in jungles</span></td></tr>
+        <tr><td><span lang="pt">Deixa</span><span lang="en">Drops</span></td><td><span lang="pt">Garra do Mapinguari, couro, 40 XP</span><span lang="en">Mapinguari Claw, leather, 40 XP</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ITENS -->
+<section id="itens">
+  <h2><span lang="pt">Itens</span><span lang="en">Items</span></h2>
+  <h3><span lang="pt">Receita: Peneira</span><span lang="en">Recipe: Sieve</span></h3>
+  <div>
+    <div class="receita">
+      <div></div><div lang="pt">Graveto</div><div lang="en">Stick</div><div></div>
+      <div lang="pt">Graveto</div><div lang="en">Stick</div><div lang="pt">Linha</div><div lang="en">String</div><div lang="pt">Graveto</div><div lang="en">Stick</div>
+      <div></div><div lang="pt">Graveto</div><div lang="en">Stick</div><div></div>
+    </div>
+    <span class="seta">→</span><img class="pixel" src="img/itens/peneira.png" alt="" style="width:64px;vertical-align:middle">
+  </div>
+  <h3><span lang="pt">Todos os itens</span><span lang="en">All items</span></h3>
+  <div class="itens">
+    <div class="item"><img class="pixel" src="img/itens/peneira.png" alt=""><div><b><span lang="pt">Peneira</span><span lang="en">Sieve</span></b><p lang="pt">A única coisa que pega o Saci. Mire e clique (até 9 blocos). 16 usos.</p><p lang="en">The only thing that catches the Saci. Aim and right-click (up to 9 blocks). 16 uses.</p></div></div>
+    <div class="item"><img class="pixel" src="img/itens/gorro_saci.png" alt=""><div><b><span lang="pt">Gorro do Saci</span><span lang="en">Saci's Cap</span></b><p lang="pt">Na cabeça: +20% de velocidade, pulo maior, e nenhum Saci te rouba.</p><p lang="en">Worn: +20% speed, higher jumps, and no Saci will rob you.</p></div></div>
+    <div class="item"><img class="pixel" src="img/itens/saci_garrafa.png" alt=""><div><b><span lang="pt">Saci na Garrafa</span><span lang="en">Saci in a Bottle</span></b><p lang="pt">5 favores: um redemoinho traz todos os itens e XP soltos num raio de 16 blocos até você (espera de 20 s). No último favor ele estoura a rolha e foge!</p><p lang="en">5 favours: a whirlwind brings every loose item and XP orb within 16 blocks to you (20 s cooldown). After the last one he pops the cork and escapes!</p></div></div>
+    <div class="item"><img class="pixel" src="img/itens/olho_boitata.png" alt=""><div><b><span lang="pt">Olho de Boitatá</span><span lang="en">Boitatá Eye</span></b><p lang="pt">Comestível: visão noturna por 3 min e resistência a fogo por 1 min.</p><p lang="en">Edible: night vision for 3 min and fire resistance for 1 min.</p></div></div>
+    <div class="item"><img class="pixel" src="img/itens/freio_mula.png" alt=""><div><b><span lang="pt">Freio da Mula</span><span lang="en">Mule's Iron Bridle</span></b><p lang="pt">Use num cavalo, burro ou mula domado: +30% de velocidade para sempre (uma vez por animal).</p><p lang="en">Use on a tamed horse, donkey or mule: +30% speed, permanently (once per animal).</p></div></div>
+    <div class="item"><img class="pixel" src="img/itens/escama_iara.png" alt=""><div><b><span lang="pt">Escama da Iara</span><span lang="en">Iara Scale</span></b><p lang="pt">Comestível: respiração aquática e graça do golfinho por 3 min.</p><p lang="en">Edible: water breathing and dolphin's grace for 3 min.</p></div></div>
+    <div class="item"><img class="pixel" src="img/itens/chapeu_boto.png" alt=""><div><b><span lang="pt">Chapéu do Boto</span><span lang="en">Boto's Hat</span></b><p lang="pt">Na cabeça: nada muito mais rápido e segura o fôlego por mais tempo.</p><p lang="en">Worn: swim much faster and hold your breath longer.</p></div></div>
+    <div class="item"><img class="pixel" src="img/itens/garra_mapinguari.png" alt=""><div><b><span lang="pt">Garra do Mapinguari</span><span lang="en">Mapinguari Claw</span></b><p lang="pt">Arma pesada: muito dano, ataque lento.</p><p lang="en">A heavy weapon: big damage, slow swing.</p></div></div>
+  </div>
+  <p lang="pt">Todas as criaturas têm <b>ovo gerador</b> na aba criativa "Folclore Brasileiro".</p>
+  <p lang="en">Every creature has a <b>spawn egg</b> in the "Brazilian Folklore" creative tab.</p>
+</section>
+
+<!-- ============================================================ APARIÇÕES -->
+<section id="aparicoes">
+  <h2><span lang="pt">Quando aparecem</span><span lang="en">When they appear</span></h2>
+  <p lang="pt">Uma vez por minuto, para cada jogador no modo sobrevivência no Overworld, cada criatura cujas condições são atendidas tem uma pequena chance de chegar. Chega no máximo uma criatura por minuto, e nunca duas do mesmo tipo a menos de 64 blocos uma da outra. As criaturas da noite vão embora ao amanhecer, e todas vão embora depois de 2 minutos sem ninguém por perto.</p>
+  <p lang="en">Once a minute, for each survival player in the Overworld, every creature whose conditions are met has a small chance to arrive. At most one per minute, and never two of the same kind within 64 blocks. Night creatures leave at sunrise; all of them leave after 2 minutes with nobody around.</p>
+  <table class="tabela">
+    <tr><th><span lang="pt">Criatura</span><span lang="en">Creature</span></th><th><span lang="pt">Condição</span><span lang="en">Condition</span></th><th><span lang="pt">Chance padrão</span><span lang="en">Default chance</span></th></tr>
+    <tr><td>Saci</td><td><span lang="pt">Dia até o anoitecer, céu aberto</span><span lang="en">Day to dusk, open sky</span></td><td>1/20</td></tr>
+    <tr><td>Curupira</td><td><span lang="pt">48+ pontos de desmatamento</span><span lang="en">48+ forest debt</span></td><td><span lang="pt">sempre</span><span lang="en">always</span></td></tr>
+    <tr><td>Boitatá</td><td><span lang="pt">Noite, céu aberto · ou fogo perto da mata</span><span lang="en">Night, open sky · or fire near the forest</span></td><td><span lang="pt">1/25 · sempre</span><span lang="en">1/25 · always</span></td></tr>
+    <tr><td><span lang="pt">Mula sem Cabeça</span><span lang="en">Headless Mule</span></td><td><span lang="pt">Noite, céu aberto (dobro de quinta para sexta)</span><span lang="en">Night, open sky (double on Thursday→Friday)</span></td><td>1/30</td></tr>
+    <tr><td>Iara</td><td><span lang="pt">Noite, água por perto</span><span lang="en">Night, water nearby</span></td><td>1/12</td></tr>
+    <tr><td>Boto</td><td><span lang="pt">Água por perto</span><span lang="en">Water nearby</span></td><td>1/8</td></tr>
+    <tr><td>Cuca</td><td><span lang="pt">Noite, 3+ noites sem dormir</span><span lang="en">Night, 3+ nights without sleep</span></td><td>1/3</td></tr>
+    <tr><td>Lobisomem</td><td><span lang="pt">Noite de lua cheia, céu aberto</span><span lang="en">Full-moon night, open sky</span></td><td>1/5</td></tr>
+    <tr><td>Mapinguari</td><td><span lang="pt">Dia, na selva</span><span lang="en">Day, in a jungle</span></td><td>1/20</td></tr>
+  </table>
+</section>
+
+<!-- ============================================================ COMANDOS -->
+<section id="comandos">
+  <h2><span lang="pt">Comandos</span><span lang="en">Commands</span></h2>
+  <p lang="pt">Comandos de operador, ótimos para gravar vídeos. Criaturas chamadas por comando ou por ovo <b>não vão embora quando amanhece</b>.</p>
+  <p lang="en">Operator commands, great for recording videos. Creatures called by command or spawn egg <b>don't leave at sunrise</b>.</p>
+  <table class="tabela">
+    <tr><th><span lang="pt">Comando</span><span lang="en">Command</span></th><th><span lang="pt">O que faz</span><span lang="en">What it does</span></th></tr>
+    <tr><td><code>/folclore saci</code></td><td><span lang="pt">Traz um Saci num redemoinho</span><span lang="en">Brings a Saci in a whirlwind</span></td></tr>
+    <tr><td><code>/folclore curupira</code></td><td><span lang="pt">Traz o Curupira (e põe seu desmatamento na fúria)</span><span lang="en">Brings the Curupira (and sets your forest debt to fury)</span></td></tr>
+    <tr><td><code>/folclore boitata|mula|cuca|lobisomem|mapinguari</code></td><td><span lang="pt">Traz a criatura perto de você</span><span lang="en">Brings that creature near you</span></td></tr>
+    <tr><td><code>/folclore iara|boto</code></td><td><span lang="pt">Traz a criatura na água mais próxima</span><span lang="en">Brings that creature into the nearest water</span></td></tr>
+    <tr><td><code>/folclore desmatamento [valor]</code></td><td><span lang="pt">Mostra ou define seus pontos de desmatamento (0 a 120)</span><span lang="en">Shows or sets your forest debt (0–120)</span></td></tr>
+  </table>
+</section>
+
+<!-- ============================================================ CONFIG -->
+<section id="config">
+  <h2><span lang="pt">Configuração</span><span lang="en">Configuration</span></h2>
+  <p lang="pt">O arquivo <code>config/folclore.json</code> é criado na primeira vez que o jogo abre. As chances são "1 em N por minuto". <b>0 desliga</b> as aparições naturais daquela criatura (o comando e o ovo continuam funcionando).</p>
+  <p lang="en">The file <code>config/folclore.json</code> is created on first launch. Chances are "1 in N per minute"; <b>0 turns off</b> that creature's natural appearances (commands and eggs still work).</p>
+<pre>{
+  "saciAtivo": true,
+  "saciChance": 20,
+  "curupiraAtivo": true,
+  "curupiraAviso": 24,
+  "curupiraFuria": 48,
+  "boitataChance": 25,
+  "mulaChance": 30,
+  "iaraChance": 12,
+  "botoChance": 8,
+  "cucaChance": 3,
+  "lobisomemChance": 5,
+  "mapinguariChance": 20,
+  "boitataContraQueimada": true
+}</pre>
+</section>
+
+<!-- ============================================================ FAQ -->
+<section id="faq">
+  <h2>FAQ</h2>
+  <h3><span lang="pt">O Saci roubou meu item e sumiu. Perdi?</span><span lang="en">The Saci stole my item and vanished. Is it gone?</span></h3>
+  <p lang="pt">Não. Enquanto ele estiver com o item, ele não some do mundo: fica fugindo por perto. Faça uma peneira e vá atrás dele. Quando ele parar para rir, é a hora.</p>
+  <p lang="en">No. While he carries your item he never despawns: he keeps fleeing nearby. Craft a sieve and go after him. When he stops to laugh, that's your moment.</p>
+  <h3><span lang="pt">Posso usar em servidor e em modpack?</span><span lang="en">Can I use it on servers and in modpacks?</span></h3>
+  <p lang="pt">Pode, desde que baixe das páginas oficiais (Modrinth ou CurseForge). Vídeos e lives, inclusive monetizados, também estão liberados.</p>
+  <p lang="en">Yes, as long as it's downloaded from the official pages (Modrinth or CurseForge). Videos and streams, monetised too, are welcome.</p>
+  <h3><span lang="pt">Achei um bug / tenho uma ideia</span><span lang="en">I found a bug / have an idea</span></h3>
+  <p lang="pt">Abra uma issue no <a href="https://github.com/Dants0/folclore-brasileiro/issues">GitHub</a> ou comente na página do mod.</p>
+  <p lang="en">Open an issue on <a href="https://github.com/Dants0/folclore-brasileiro/issues">GitHub</a> or comment on the mod page.</p>
+</section>
+</main>
+</div>
+
+<footer>
+  <span lang="pt">Feito por Guilherme Goes, autor do <a href="https://modrinth.com/mod/arraial">Arraial</a>. As lendas pertencem à cultura popular brasileira. Não é um produto oficial do Minecraft.</span>
+  <span lang="en">Made by Guilherme Goes, author of <a href="https://modrinth.com/mod/arraial">Arraial</a>. The legends belong to Brazilian popular culture. Not an official Minecraft product.</span>
+</footer>
+
+<script>
+(function () {
+  var raiz = document.documentElement, botao = document.getElementById('lingua');
+  function aplicar(l) {
+    raiz.setAttribute('data-lingua', l);
+    raiz.lang = l === 'pt' ? 'pt-BR' : 'en';
+    botao.textContent = l === 'pt' ? 'English' : 'Português';
+  }
+  var salva = null;
+  try { salva = localStorage.getItem('folclore-lingua'); } catch (e) {}
+  aplicar(salva || ((navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en'));
+  botao.addEventListener('click', function () {
+    var l = raiz.getAttribute('data-lingua') === 'pt' ? 'en' : 'pt';
+    aplicar(l);
+    try { localStorage.setItem('folclore-lingua', l); } catch (e) {}
+  });
+  // Highlight the current section in the sidebar.
+  var links = Array.prototype.slice.call(document.querySelectorAll('aside a'));
+  var obs = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('ativo', a.getAttribute('href') === '#' + e.target.id); });
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('main section').forEach(function (s) { obs.observe(s); });
+})();
+</script>
+</body>
+</html>
