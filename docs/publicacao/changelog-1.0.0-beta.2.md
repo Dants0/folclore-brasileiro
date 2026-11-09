@@ -1,0 +1,2 @@
+- The nine spawn eggs now also show up in the vanilla **Spawn Eggs** creative tab (before, they were only in the "Brazilian Folklore" tab).
+- Os nove ovos geradores agora também aparecem na aba **Ovos Geradores** do criativo (antes só estavam na aba "Folclore Brasileiro").
