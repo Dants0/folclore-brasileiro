@@ -18,10 +18,10 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
@@ -33,12 +33,14 @@ import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.Nullable;
 
 /**
- * Boitatá: the great fire serpent with huge shining eyes who protects the fields from whoever sets
- * them on fire. He crawls across the fields at night, puts out every fire around him (he "eats" the
+ * Boitatá: the great fire serpent with huge shining eyes who lives in the forests and along the
+ * rivers and protects them from whoever sets them on fire. He crawls over the forest floor and swims
+ * in the rivers at night (never flies), surrounded by will-o'-the-wisp lights hovering low over the
+ * ground and the water; puts out every fire around him (he "eats" the
  * flames), and goes after anyone who lights a fire near the forest, setting them ablaze in turn.
  * Leaves at dawn. Drops the Olho de Boitatá.
  */
-public class BoitataEntity extends Assombracao {
+public class BoitataEntity extends Anfibia {
 	/** The player who set the forest on fire, if he came for someone. */
 	private @Nullable UUID incendiario;
 
@@ -56,9 +58,10 @@ public class BoitataEntity extends Assombracao {
 
 	@Override
 	protected void registerGoals() {
-		goalSelector.addGoal(0, new FloatGoal(this));
 		goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3, true));
-		goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8));
+		// At home on the forest floor and in the rivers alike.
+		goalSelector.addGoal(5, new RandomStrollGoal(this, 0.8));
+		goalSelector.addGoal(5, new RandomSwimmingGoal(this, 0.9, 30));
 		goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 16.0F));
 		targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, false, false,
@@ -135,6 +138,15 @@ public class BoitataEntity extends Assombracao {
 				double d = i * 0.7;
 				level.sendParticles(ParticleTypes.FLAME, getX() + Math.sin(a) * d, getY() + 0.4, getZ() - Math.cos(a) * d, 1, 0.1, 0.1, 0.1, 0.005);
 			}
+		}
+		// Fogo-fátuo: small lights drifting low over the ground and the water around him.
+		if (tickCount % 8 == 0) {
+			double fx = getX() + (random.nextDouble() - 0.5) * 10, fz = getZ() + (random.nextDouble() - 0.5) * 10;
+			BlockPos chao = BlockPos.containing(fx, getY() + 2, fz);
+			for (int i = 0; i < 6 && level.getBlockState(chao.below()).isAir(); i++) {
+				chao = chao.below();
+			}
+			level.sendParticles(ParticleTypes.SMALL_FLAME, fx, chao.getY() + 0.3 + random.nextDouble() * 0.6, fz, 1, 0.05, 0.05, 0.05, 0.002);
 		}
 		// He eats the flames: every fire nearby goes out.
 		if (tickCount % 10 == 0) {

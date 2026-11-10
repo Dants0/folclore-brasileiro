@@ -144,6 +144,48 @@ public final class Roteiro {
 			passo(10, () -> mc().stop());
 			return;
 		}
+		if ("boitata".equals(System.getenv("FOLCLORE_ROTEIRO_SO"))) {
+			passo(10, () -> cmd("gamemode creative", "time set 18000", "weather clear", "kill @e[type=!minecraft:player]", "tp @s ~ ~ ~ 0 20"));
+			passo(20, () -> servidor(sp -> {
+				var level = (net.minecraft.server.level.ServerLevel) sp.level();
+				var terra = com.guilhermegoes.folclore.criatura.Assombracoes.aparecer(level, sp, com.guilhermegoes.folclore.registry.ModEntities.BOITATA, false);
+				com.guilhermegoes.folclore.criatura.BoitataEntity agua = null;
+				for (var q : net.minecraft.core.BlockPos.betweenClosed(sp.blockPosition().offset(-24, -6, -24), sp.blockPosition().offset(24, 3, 24))) {
+					if (level.getFluidState(q).is(net.minecraft.tags.FluidTags.WATER) && level.getBlockState(q.above()).isAir()) {
+						agua = com.guilhermegoes.folclore.registry.ModEntities.BOITATA.spawn(level, q.immutable(), net.minecraft.world.entity.EntitySpawnReason.COMMAND);
+						break;
+					}
+				}
+				for (var b : new com.guilhermegoes.folclore.criatura.BoitataEntity[] {terra, agua}) {
+					if (b != null) {
+						b.chamar();
+						b.setCustomName(net.minecraft.network.chat.Component.literal(b == agua ? "agua" : "terra"));
+						log("boitata " + (b == agua ? "agua" : "terra") + " inicio=" + b.position() + " naAgua=" + b.isInWater());
+					} else {
+						log("boitata nao nasceu");
+					}
+				}
+			}));
+			for (int k = 0; k < 12; k++) {
+				final int amostra = k;
+				passo(15, () -> servidor(sp -> {
+					for (var b : perto(sp, com.guilhermegoes.folclore.criatura.BoitataEntity.class, 64)) {
+						int altura = 0;
+						var q = b.blockPosition();
+						while (altura < 8 && sp.level().getBlockState(q.below(altura + 1)).isAir()) {
+							altura++;
+						}
+						log("amostra " + amostra + " " + b.getCustomName().getString() + " pos=" + String.format("%.1f %.1f %.1f", b.getX(), b.getY(), b.getZ())
+								+ " naAgua=" + b.isInWater() + " noChao=" + b.onGround() + " blocosDeArAbaixo=" + altura);
+					}
+				}));
+			}
+			passo(5, () -> servidor(sp -> perto(sp, com.guilhermegoes.folclore.criatura.BoitataEntity.class, 64).stream().findFirst()
+					.ifPresent(b -> sp.teleportTo(b.getX() - 4, b.getY() + 2, b.getZ() - 4))));
+			passo(30, () -> foto("boitata_movendo"));
+			passo(10, () -> mc().stop());
+			return;
+		}
 		if ("ovos".equals(System.getenv("FOLCLORE_ROTEIRO_SO"))) {
 			passo(20, Roteiro::ovos);
 			passo(10, () -> mc().stop());

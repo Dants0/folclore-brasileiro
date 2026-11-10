@@ -26,7 +26,7 @@ Mod de criaturas do folclore brasileiro (Fabric 26.3). Cada criatura nova = uma 
 - [ ] Publicação: GitHub, Modrinth, CurseForge (como no Arraial: tools/publicar.js)
 
 ## 0.1.0 (cont.): todas as criaturas
-- [x] **Boitatá**: cobra de fogo que rasteja pelo chão (noite, céu aberto). Apaga todo fogo num raio de 8 blocos. Quem acende fogo (isqueiro, carga de fogo) perto de troncos/folhas chama o Boitatá, que persegue e queima. Larga o **Olho de Boitatá** (visão noturna 3 min + resistência a fogo 1 min).
+- [x] **Boitatá**: cobra de fogo que rasteja pela mata e nada nos rios, com fogo-fátuo em volta (noite, matas e beiras de rio). Apaga todo fogo num raio de 8 blocos. Quem acende fogo (isqueiro, carga de fogo) perto de troncos/folhas chama o Boitatá, que persegue e queima. Larga o **Olho de Boitatá** (visão noturna 3 min + resistência a fogo 1 min).
 - [x] **Mula sem Cabeça**: noite, céu aberto; dobro de chance na noite de quinta para sexta. Galopa, atropela e põe fogo. Abaixo de 50% de vida fica **cansada**: mão vazia nela arranca o **Freio da Mula** (quebra o encanto). O freio deixa um cavalo domado 30% mais rápido.
 - [x] **Iara**: noite, perto d'água. Canta; quem **olha** para ela é puxado para a água (náusea); perto dela na água, é puxado para o fundo. Desviar o olhar quebra o encanto. Ferida, mergulha e foge. Larga **Escama da Iara** (respirar e nadar 3 min).
 - [x] **Boto**: golfinho rosa que salva quem está se afogando (respiração aquática + empurrão). À noite vira o moço de chapéu branco que dança na margem; dá presente em troca de peixe. Bater nele derruba o **Chapéu do Boto** (nado rápido + fôlego) e ele volta para o rio.

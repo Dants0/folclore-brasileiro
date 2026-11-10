@@ -27,7 +27,8 @@ import org.jspecify.annotations.Nullable;
  * When and where each legend appears. Once a minute, for every survival player in the Overworld,
  * each creature whose conditions are met (the ones from the tales) has a small chance to come:
  * <ul>
- * <li>Boitatá: at night, in the open; and always when someone lights a fire near the forest.</li>
+ * <li>Boitatá: at night, in forests and along rivers (on land or rising from the water); and always
+ * when someone lights a fire near the forest.</li>
  * <li>Mula sem Cabeça: at night, in the open; twice as likely on Thursday-to-Friday nights.</li>
  * <li>Iara: at night, near water; she rises in the river.</li>
  * <li>Boto: near water, day or night.</li>
@@ -95,8 +96,13 @@ public final class Assombracoes {
 				return;
 			}
 		}
-		if (noite && ceu && sorte(r, c.boitataChance) && !existe(level, p, ModEntities.BOITATA)) {
-			if (aparecer(level, p, ModEntities.BOITATA, false) != null) {
+		if (noite && mataOuRio(level, p) && sorte(r, c.boitataChance) && !existe(level, p, ModEntities.BOITATA)) {
+			// He lives in the forests and along the rivers: half the time he rises from the water.
+			BoitataEntity b = r.nextBoolean() ? naAgua(level, p, ModEntities.BOITATA) : null;
+			if (b == null) {
+				b = aparecer(level, p, ModEntities.BOITATA, false);
+			}
+			if (b != null) {
 				p.sendOverlayMessage(Component.translatable("folclore.boitata.visto"));
 				return;
 			}
@@ -117,6 +123,13 @@ public final class Assombracoes {
 				p.sendSystemMessage(Component.translatable("folclore.mapinguari.chegou"));
 			}
 		}
+	}
+
+	/** Forests, jungles, taigas, rivers and swamps: where the Boitatá lives. */
+	public static boolean mataOuRio(ServerLevel level, ServerPlayer p) {
+		var b = level.getBiome(p.blockPosition());
+		return b.is(BiomeTags.IS_FOREST) || b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_TAIGA) || b.is(BiomeTags.IS_RIVER)
+				|| b.is(net.minecraft.world.level.biome.Biomes.SWAMP) || b.is(net.minecraft.world.level.biome.Biomes.MANGROVE_SWAMP);
 	}
 
 	private static boolean sorte(RandomSource r, int chance) {

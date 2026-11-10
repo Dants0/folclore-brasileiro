@@ -15,7 +15,7 @@ A whirlwind comes spinning towards you... and a one-legged boy in a red cap **st
 The guardian of the forest, with flaming hair and **feet turned backwards**. Cut down too many trees or hunt too many wild animals and you will hear a whistle in the woods... and find **footprints pointing the wrong way**. Keep going and the Curupira comes for you, making you lose your way. Plant saplings and the forest forgives you; an **offering of honey** calms him down.
 
 ## 🐍 Boitatá
-A great serpent of fire with huge shining eyes. It crawls across the fields at night and **puts out every fire** it passes. **Light a fire near the forest** and it comes after you. Drops the **Boitatá Eye** (night vision and fire resistance).
+A great serpent of fire with huge shining eyes. It crawls over the forest floor and swims in the rivers (it never flies), surrounded by will-o'-the-wisp lights, and **puts out every fire** it passes. **Light a fire near the forest** and it comes after you. Drops the **Boitatá Eye** (night vision and fire resistance).
 
 ## 🐴 Headless Mule (Mula sem Cabeça)
 Gallops through the night, with fire where her head should be (especially from Thursday to Friday!). Wear her out, then **pull off her iron bridle with your bare hand** to break the curse. The bridle makes your own horse much faster.

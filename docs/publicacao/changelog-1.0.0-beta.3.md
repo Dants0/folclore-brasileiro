@@ -1,4 +1,5 @@
 - **Fix:** the game no longer crashes on startup with "Could not execute entrypoint stage 'client'" (1.0.0-beta.1 and beta.2 referenced a development-only class). Please update!
 - **Correção:** o jogo não fecha mais ao abrir com o erro "Could not execute entrypoint stage 'client'" (as versões beta.1 e beta.2 dependiam de uma classe que só existe no ambiente de desenvolvimento). Atualize!
 - Spawn eggs are also in the vanilla Spawn Eggs tab (since beta.2). / Os ovos também estão na aba Ovos Geradores (desde a beta.2).
-- **Boitatá** now crawls across the ground like the fire serpent of the legend, instead of flying. / O **Boitatá** agora rasteja pelo chão, como a cobra de fogo da lenda, em vez de voar.
+- **Boitatá**, as in the legend: it crawls over the forest floor and **swims in rivers** instead of flying, shows up in forests and by rivers, and is surrounded by will-o'-the-wisp lights close to the ground and water.
+- **Boitatá**, como na lenda: rasteja pelo chão da mata e **nada nos rios** em vez de voar, aparece nas matas e beiras de rio, e tem fogo-fátuo em volta, rente ao chão e à água.
