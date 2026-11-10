@@ -99,7 +99,7 @@ const ALT = {
   'curupira.jpg': 'Curupira no Minecraft: guardião da mata com cabelo de fogo e pés virados para trás',
   'curupira_noite.jpg': 'Curupira com o cabelo de fogo brilhando à noite no Minecraft',
   'mapinguari.jpg': 'Mapinguari no Minecraft: gigante de pelo vermelho, um olho só e boca na barriga',
-  'boitata.jpg': 'Boitatá, a cobra de fogo, voando sobre o campo no Minecraft',
+  'boitata.jpg': 'Boitatá, a cobra de fogo, rastejando pelo campo no Minecraft',
   'boitata_noite.jpg': 'Boitatá brilhando no escuro à noite no Minecraft',
   'mula_sem_cabeca.jpg': 'Mula sem Cabeça com fogo saindo do pescoço no Minecraft',
   'iara.jpg': 'Iara, a mãe-d\'água com cauda de peixe, no Minecraft',

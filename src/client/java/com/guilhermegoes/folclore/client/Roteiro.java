@@ -314,7 +314,7 @@ public final class Roteiro {
 		String[][] retratos = {
 				{"saci", "~ ~ ~2.5", "{NoAI:1b,Rotation:[180f,0f],equipment:{mainhand:{id:\"minecraft:diamond\",count:3}}}"},
 				{"curupira", "~ ~ ~3", "{NoAI:1b,Rotation:[150f,0f]}"},
-				{"boitata", "~ ~1.5 ~4", "{NoAI:1b,Rotation:[150f,0f]}"},
+				{"boitata", "~ ~ ~4", "{NoAI:1b,Rotation:[150f,0f]}"},
 				{"mula_sem_cabeca", "~ ~ ~4", "{NoAI:1b,Rotation:[150f,0f]}"},
 				{"iara", "~ ~ ~3", "{NoAI:1b,Rotation:[180f,0f]}"},
 				{"boto", "~ ~ ~3", "{NoAI:1b,Rotation:[140f,0f]}"},

@@ -40,7 +40,7 @@ public final class ModEntities {
 					.clientTrackingRange(10)
 					.build(CURUPIRA_KEY));
 
-	public static final EntityType<BoitataEntity> BOITATA = registrar("boitata", BoitataEntity::new, 1.2F, 0.8F, 0.4F, true);
+	public static final EntityType<BoitataEntity> BOITATA = registrar("boitata", BoitataEntity::new, 1.2F, 0.6F, 0.4F, true);
 	public static final EntityType<MulaSemCabecaEntity> MULA_SEM_CABECA = registrar("mula_sem_cabeca", MulaSemCabecaEntity::new, 1.3F, 1.5F, 1.3F, true);
 	public static final EntityType<IaraEntity> IARA = registrar("iara", IaraEntity::new, 0.6F, 1.8F, 1.55F, false);
 	public static final EntityType<BotoEntity> BOTO = registrar("boto", BotoEntity::new, 0.9F, 0.6F, 0.3F, false);

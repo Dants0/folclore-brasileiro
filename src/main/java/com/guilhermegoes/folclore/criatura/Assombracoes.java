@@ -59,7 +59,7 @@ public final class Assombracoes {
 					&& FolcloreConfig.get().boitataContraQueimada && !sp.isCreative()
 					&& (player.getItemInHand(hand).is(Items.FLINT_AND_STEEL) || player.getItemInHand(hand).is(Items.FIRE_CHARGE))
 					&& pertoDaMata(server, hit.getBlockPos()) && !existe(server, sp, ModEntities.BOITATA)) {
-				BoitataEntity b = aparecer(server, sp, ModEntities.BOITATA, true);
+				BoitataEntity b = aparecer(server, sp, ModEntities.BOITATA, false);
 				if (b != null) {
 					b.perseguir(sp);
 					BoitataEntity.avisar(sp);
@@ -96,7 +96,7 @@ public final class Assombracoes {
 			}
 		}
 		if (noite && ceu && sorte(r, c.boitataChance) && !existe(level, p, ModEntities.BOITATA)) {
-			if (aparecer(level, p, ModEntities.BOITATA, true) != null) {
+			if (aparecer(level, p, ModEntities.BOITATA, false) != null) {
 				p.sendOverlayMessage(Component.translatable("folclore.boitata.visto"));
 				return;
 			}

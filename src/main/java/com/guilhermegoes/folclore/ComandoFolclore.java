@@ -26,7 +26,7 @@ public final class ComandoFolclore {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registry, ambiente) -> {
 			LiteralArgumentBuilder<CommandSourceStack> raiz = Commands.literal("folclore")
 					.requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS));
-			criatura(raiz, "boitata", ModEntities.BOITATA, true, false);
+			criatura(raiz, "boitata", ModEntities.BOITATA, false, false);
 			criatura(raiz, "mula", ModEntities.MULA_SEM_CABECA, false, false);
 			criatura(raiz, "iara", ModEntities.IARA, false, true);
 			criatura(raiz, "boto", ModEntities.BOTO, false, true);

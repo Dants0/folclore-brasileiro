@@ -18,15 +18,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
-import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -37,7 +34,7 @@ import org.jspecify.annotations.Nullable;
 
 /**
  * Boitatá: the great fire serpent with huge shining eyes who protects the fields from whoever sets
- * them on fire. He glides through the air at night, puts out every fire around him (he "eats" the
+ * them on fire. He crawls across the fields at night, puts out every fire around him (he "eats" the
  * flames), and goes after anyone who lights a fire near the forest, setting them ablaze in turn.
  * Leaves at dawn. Drops the Olho de Boitatá.
  */
@@ -47,32 +44,21 @@ public class BoitataEntity extends Assombracao {
 
 	public BoitataEntity(EntityType<? extends BoitataEntity> type, Level level) {
 		super(type, level);
-		moveControl = new FlyingMoveControl(this, 20, true);
-		setNoGravity(true);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
 				.add(Attributes.MAX_HEALTH, 30.0)
-				.add(Attributes.FLYING_SPEED, 0.6)
 				.add(Attributes.MOVEMENT_SPEED, 0.3)
 				.add(Attributes.ATTACK_DAMAGE, 4.0)
 				.add(Attributes.FOLLOW_RANGE, 40.0);
 	}
 
 	@Override
-	protected PathNavigation createNavigation(Level level) {
-		FlyingPathNavigation nav = new FlyingPathNavigation(this, level);
-		nav.setCanOpenDoors(false);
-		nav.setCanFloat(true);
-		return nav;
-	}
-
-	@Override
 	protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
 		goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3, true));
-		goalSelector.addGoal(5, new WaterAvoidingRandomFlyingGoal(this, 0.8));
+		goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8));
 		goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 16.0F));
 		targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, false, false,
