@@ -1,0 +1,3 @@
+- **Fix:** the game no longer crashes on startup with "Could not execute entrypoint stage 'client'" (1.0.0-beta.1 and beta.2 referenced a development-only class). Please update!
+- **Correção:** o jogo não fecha mais ao abrir com o erro "Could not execute entrypoint stage 'client'" (as versões beta.1 e beta.2 dependiam de uma classe que só existe no ambiente de desenvolvimento). Atualize!
+- Spawn eggs are also in the vanilla Spawn Eggs tab (since beta.2). / Os ovos também estão na aba Ovos Geradores (desde a beta.2).

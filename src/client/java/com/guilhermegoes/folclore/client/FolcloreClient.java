@@ -53,6 +53,14 @@ public class FolcloreClient implements ClientModInitializer {
 				new LobisomemModel(c.bakeLayer(LOBISOMEM)), "lobisomem", 0.6F, true, CriaturaRenderer::nunca));
 		EntityRendererRegistry.register(ModEntities.MAPINGUARI, c -> new CriaturaRenderer<>(c,
 				new MapinguariModel(c.bakeLayer(MAPINGUARI)), "mapinguari", 1.0F, true, CriaturaRenderer::nunca));
-		Roteiro.init();
+		// The automated test script is left out of the published jar: load it only when asked for,
+		// by name, so the released client never depends on it.
+		if ("1".equals(System.getenv("FOLCLORE_ROTEIRO"))) {
+			try {
+				Class.forName("com.guilhermegoes.folclore.client.Roteiro").getMethod("init").invoke(null);
+			} catch (ReflectiveOperationException e) {
+				Folclore.LOGGER.warn("Folclore: roteiro de teste indisponível: {}", e.toString());
+			}
+		}
 	}
 }

@@ -62,3 +62,16 @@ jar {
 sourcesJar {
 	exclude 'com/guilhermegoes/folclore/client/Roteiro*'
 }
+
+// Runs the built jar the way a player's launcher does (no dev classes, no test script):
+// ./gradlew prodClient. Catches mistakes that only show up in the published jar.
+configurations { prodMods { transitive = false } }
+dependencies { prodMods "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}" }
+
+tasks.register("prodClient", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
+	dependsOn tasks.named("jar")
+	if (!project.hasProperty("semFolclore")) mods.from(tasks.named("jar"))
+	mods.from(configurations.prodMods)
+	jvmArgs.add("-Xmx1536m")
+	runDir = file("run-prod")
+}
